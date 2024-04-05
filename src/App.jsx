@@ -8,41 +8,39 @@ import Homes from "./pages/Homes";
 import About from "./pages/About"
 import Product from "./pages/Product"
 import Contact from "./pages/Contact";
-import SubmitContact from "./pages/SubmitOfContact"
-import YellowShoes from "./pagesOfShoes/YellowShoes"
-import GreenShoes from "./pagesOfShoes/GreenShoes"
-import BlueShoes from "./pagesOfShoes/BlueShoes"
-import WhiteShoes from "./pagesOfShoes/WhiteShoes"
-import BrownShoes from "./pagesOfShoes/BrownShoes"
-import HalfRedShoes from "./pagesOfShoes/HalfRedShoes"
-import ClassicShoes from "./pagesOfShoes/ClassicShoes"
 
 function App() {
-const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 500);
-}, [])
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+  }, []);
 
-if (isLoading) {
-  return (
-    <div className="w-full h-screen flex items-center justify-center ">
-      <MutatingDots
-        visible={true}
-        height="100"
-        width="100"
-        color="#1d52d8"
-        secondaryColor="#e1e1e3"
-        radius="12.5"
-        ariaLabel="mutating-dots-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
-    </div>
-  );
-}
+  if (isLoading) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center ">
+        <MutatingDots
+          visible={true}
+          height="100"
+          width="100"
+          color="#1e3e8a"
+          secondaryColor="#e1e1e3"
+          radius="12.5"
+          ariaLabel="mutating-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+        <p className="font-bold text-inherit text-1xl text-blue-900 text-shadow px-5">
+          The Wilies{" "}
+          <span className="text-white bg-blue-900 px-5 py-1 rounded-lg">
+            Shoes
+          </span>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
@@ -52,14 +50,6 @@ if (isLoading) {
         <Route path="/about" element={<About />}></Route>
         <Route path="/product" element={<Product />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/submit" element={<SubmitContact />}></Route>
-        <Route path="/yellow" element={<YellowShoes />}></Route>
-        <Route path="/green" element={<GreenShoes />}></Route>
-        <Route path="/blue" element={<BlueShoes />}></Route>
-        <Route path="/white" element={<WhiteShoes />}></Route>
-        <Route path="/brown" element={<BrownShoes />}></Route>
-        <Route path="/halfred" element={<HalfRedShoes />}></Route>
-        <Route path="/classic" element={<ClassicShoes />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -17,7 +17,7 @@ const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <Navbar
-      className="font-sand p-3 w-screen fixed"
+      className="font-sand p-3 w-screen fixed bg-white"
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent>
@@ -94,18 +94,18 @@ const [isMenuOpen, setIsMenuOpen] = React.useState(false);
           </Tooltip>
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu className="bg-white">
         {/* Collapse Menu */}
-        <NavbarMenuItem>
+        <NavbarMenuItem className="bg-white">
           <NavbarContent
-            className="flex flex-col gap-4 font-bold smxxl:mt-5 items-center h-96 w-full"
+            className="flex flex-col gap-4 font-bold smxxl:mt-5 items-center h-96 w-full bg-white"
             justify="center"
           >
             <NavbarItem>
               <Link
                 color="foreground"
                 href="/"
-                className="hover:bg-blue-900 py-1 px-3 hover:text-white hover:drop-shadow-md rounded-lg"
+                className="hover:text-blue-900 hover:drop-shadow-md"
               >
                 Home
               </Link>
@@ -114,7 +114,7 @@ const [isMenuOpen, setIsMenuOpen] = React.useState(false);
               <Link
                 href="/about"
                 aria-current="page"
-                className="hover:bg-blue-900 py-1 px-3 hover:text-white hover:drop-shadow-md rounded-lg"
+                className="hover:text-blue-900 hover:drop-shadow-md"
               >
                 About
               </Link>
@@ -123,7 +123,7 @@ const [isMenuOpen, setIsMenuOpen] = React.useState(false);
               <Link
                 color="foreground"
                 href="/product"
-                className="hover:bg-blue-900 py-1 px-3 hover:text-white hover:drop-shadow-md rounded-lg"
+                className="hover:text-blue-900 hover:drop-shadow-md"
               >
                 Product
               </Link>
@@ -133,7 +133,7 @@ const [isMenuOpen, setIsMenuOpen] = React.useState(false);
               <Link
                 color="foreground"
                 href="/contact"
-                className="hover:bg-blue-900 py-1 px-3 hover:text-white hover:drop-shadow-md rounded-lg"
+                className="hover:text-blue-900 hover:drop-shadow-md"
               >
                 Contact
               </Link>

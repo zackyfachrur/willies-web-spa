@@ -9,6 +9,9 @@
   @tailwind utilities;
 }
 
+body {
+  transition: all ease-in-out .3s;
+}
 
 #root {
   display: flex;

@@ -4,6 +4,7 @@ import { Button, Link } from "@nextui-org/react";
 import ShoesGreen from "../assets/shoes-3.jpeg";
 import ShoesYellow from "../assets/shoes-4.jpeg";
 import ShoesBlue from "../assets/shoes-5.jpg";
+import Swal from "sweetalert2";
 
 const CustomArrow = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -22,6 +23,108 @@ const CustomArrow = (props) => {
       onClick={onClick}
     />
   );
+};
+
+const BlueShoes = () => {
+  Swal.fire({
+    title: "$24",
+    text: "Do you want to buy it?",
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Yes",
+    confirmButtonColor: "#1e3a8a",
+    cancelButtonColor: "#d33",
+    denyButtonText: `No`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      setTimeout(function () {
+        window.top.location = "/contact";
+      }, 2000);
+      Swal.fire({
+        title: "Blue Shoes",
+        text: "Sent Successfully!",
+        icon: "success",
+        confirmButtonColor: "#1e3a8a",
+        confirmButtonText: "Done",
+      });
+    } else if (result.isDenied) {
+      Swal.fire({
+        title: "Blue Shoes",
+        text: "Cancelled!",
+        icon: "error",
+        confirmButtonColor: "#1e3a8a",
+        confirmButtonText: "Done",
+      });
+    }
+  });
+};
+
+const GreenShoes = () => {
+  Swal.fire({
+    title: "$35",
+    text: "Do you want to buy it?",
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Yes",
+    confirmButtonColor: "#1e3a8a",
+    cancelButtonColor: "#d33",
+    denyButtonText: `No`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      setTimeout(function () {
+        window.top.location = "/contact";
+      }, 2000);
+      Swal.fire({
+        title: "Green Shoes",
+        text: "Sent Successfully!",
+        icon: "success",
+        confirmButtonColor: "#1e3a8a",
+        confirmButtonText: "Done",
+      });
+    } else if (result.isDenied) {
+      Swal.fire({
+        title: "Green Shoes",
+        text: "Cancelled!",
+        icon: "error",
+        confirmButtonColor: "#1e3a8a",
+        confirmButtonText: "Done",
+      });
+    }
+  });
+};
+
+const YellowShoes = () => {
+  Swal.fire({
+    title: "$54",
+    text: "Do you want to buy it?",
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Yes",
+    confirmButtonColor: "#1e3a8a",
+    cancelButtonColor: "#d33",
+    denyButtonText: `No`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      setTimeout(function () {
+        window.top.location = "/contact";
+      }, 2000);
+      Swal.fire({
+        title: "Yellow Shoes",
+        text: "Sent Successfully!",
+        icon: "success",
+        confirmButtonColor: "#1e3a8a",
+        confirmButtonText: "Done",
+      });
+    } else if (result.isDenied) {
+      Swal.fire({
+        title: "Yellow Shoes",
+        text: "Cancelled!",
+        icon: "error",
+        confirmButtonColor: "#1e3a8a",
+        confirmButtonText: "Done",
+      });
+    }
+  });
 };
 
 export default function SliderOfProduct() {
@@ -86,7 +189,7 @@ export default function SliderOfProduct() {
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              href="/blue"
+              onClick={BlueShoes}
             >
               Buy
             </Button>
@@ -103,7 +206,7 @@ export default function SliderOfProduct() {
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              href="/green"
+              onClick={GreenShoes}
             >
               Buy
             </Button>
@@ -120,7 +223,7 @@ export default function SliderOfProduct() {
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              href="/yellow"
+              onClick={YellowShoes}
             >
               Buy
             </Button>

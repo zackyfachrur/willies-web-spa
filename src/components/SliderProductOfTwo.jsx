@@ -5,6 +5,7 @@ import ShoesT1 from "../assets/shoesT-1.png";
 import ShoesT2 from "../assets/shoesT-2.png";
 import ShoesT3 from "../assets/shoesT-3.png";
 import ShoesT4 from "../assets/shoesT-4.jpg";
+import Swal from "sweetalert2";
 
 const CustomArrow = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -68,6 +69,142 @@ export default function SliderProductOfTwo() {
     ],
   };
 
+  const WhiteShoes = () => {
+    Swal.fire({
+      title: "$65",
+      text: "Do you want to buy it?",
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      confirmButtonColor: "#1e3a8a",
+      cancelButtonColor: "#d33",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTimeout(function () {
+          window.top.location = "/contact";
+        }, 2000);
+        Swal.fire({
+          title: "White Shoes",
+          text: "Sent Successfully!",
+          icon: "success",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      } else if (result.isDenied) {
+        Swal.fire({
+          title: "White Shoes",
+          text: "Cancelled!",
+          icon: "error",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      }
+    });
+  };
+
+  const BrownShoes = () => {
+    Swal.fire({
+      title: "$78",
+      text: "Do you want to buy it?",
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      confirmButtonColor: "#1e3a8a",
+      cancelButtonColor: "#d33",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTimeout(function () {
+          window.top.location = "/contact";
+        }, 2000);
+        Swal.fire({
+          title: "Brown Shoes",
+          text: "Sent Successfully!",
+          icon: "success",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      } else if (result.isDenied) {
+        Swal.fire({
+          title: "Brown Shoes",
+          text: "Cancelled!",
+          icon: "error",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      }
+    });
+  };
+
+  const HalfRedShoes = () => {
+    Swal.fire({
+      title: "$58",
+      text: "Do you want to buy it?",
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      confirmButtonColor: "#1e3a8a",
+      cancelButtonColor: "#d33",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTimeout(function () {
+          window.top.location = "/contact";
+        }, 2000);
+        Swal.fire({
+          title: "Half Red Shoes",
+          text: "Sent Successfully!",
+          icon: "success",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      } else if (result.isDenied) {
+        Swal.fire({
+          title: "Half Red Shoes",
+          text: "Cancelled!",
+          icon: "error",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      }
+    });
+  };
+
+  const ClassicShoes = () => {
+    Swal.fire({
+      title: "$52",
+      text: "Do you want to buy it?",
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      confirmButtonColor: "#1e3a8a",
+      cancelButtonColor: "#d33",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTimeout(function () {
+          window.top.location = "/contact";
+        }, 2000);
+        Swal.fire({
+          title: "Classic Shoes",
+          text: "Sent Successfully!",
+          icon: "success",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      } else if (result.isDenied) {
+        Swal.fire({
+          title: "Classic Shoes",
+          text: "Cancelled!",
+          icon: "error",
+          confirmButtonColor: "#1e3a8a",
+          confirmButtonText: "Done",
+        });
+      }
+    });
+  };
+
   return (
     <div className="lg:w-screen max-w-screen-smxxxl smxl:max-w-screen-smxxl sm:max-w-screen-smx md:max-w-screen-sm lg:max-w-screen-md lgx:max-w-screen-lg xl:w-full xl:max-w-screen-lg pb-20 gap-20 just">
       <div className="flex justify-center items-center mb-10">
@@ -87,7 +224,7 @@ export default function SliderProductOfTwo() {
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              href="/white"
+              onClick={WhiteShoes}
             >
               Buy
             </Button>
@@ -104,7 +241,7 @@ export default function SliderProductOfTwo() {
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              href="/brown"
+              onClick={BrownShoes}
             >
               Buy
             </Button>
@@ -121,7 +258,7 @@ export default function SliderProductOfTwo() {
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              href="/halfred"
+              onClick={HalfRedShoes}
             >
               Buy
             </Button>
@@ -138,7 +275,7 @@ export default function SliderProductOfTwo() {
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              href="/classic"
+              onClick={ClassicShoes}
             >
               Buy
             </Button>

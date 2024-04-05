@@ -1,21 +1,22 @@
 import "../index.css";
-import Building from "../assets/tree-building.png"
-import SliderAbout from "../components/SliderOfAbout"
-import { Tooltip, Button, Link } from "@nextui-org/react"
-import AvatarCart from "../assets/avatar.png"
-import Avatar from "../assets/avatar-2.png"
-import TimeLine from "../components/Timeline"
-
-
-
+import AboutPhone from "../assets/aboutPhone.png";
+import AboutPhone2 from "../assets/aboutPhone2.png";
+import AboutPhone3 from "../assets/aboutPhone3.png";
+import SliderAbout from "../components/SliderOfAbout";
+import { Tooltip, Button, Link } from "@nextui-org/react";
+import TimeLine from "../components/Timeline";
 export default function About() {
   return (
     <>
-      <div className="m-auto mt-56 xl:mt-0 w-full flex justify-center items-center flex-col max-w-screen-xl h-screen">
-        <div className="h-screen flex justify-center items-center flex-col xl:w-full smxxl:w-screen">
-          <div className="flex justify-center items-center gap-20 xl:flex-row flex-col mt-16 mb-10 smxxl:max-w-screen-smxxxl max-w-screen-xl">
-            <img src={Building} alt="Building IMG" className="rounded-xl" />
-            <div className="flex flex-col smxxl:w-1/2 xl:w-full justify-center items-center  p-12  rounded-lg">
+      <div className="m-auto mt-24 xl:mt-28 w-full flex justify-center items-center flex-col max-w-screen-xl">
+        <div className="flex justify-center items-center flex-col xl:w-full smxxl:w-screen lg:w-full md:w-full">
+          <div className="flex justify-center items-center smxxl:gap-20 xl:gap-40 xl:flex-row lg:flex-row lg:gap-40 md:flex-row md:gap-40 flex-col-reverse smxxl:max-w-screen-smxxxl max-w-screen-xl">
+            <img
+              src={AboutPhone}
+              alt="Phone IMG"
+              className="rounded-xl xl:w-1/2 smxxl:w-1/2"
+            />
+            <div className="flex flex-col smxxl:w-1/2 xl:w-full justify-center items-center p-12  rounded-lg">
               <Tooltip
                 content="The Wilies Shoes is the answer!"
                 placement="top"
@@ -36,14 +37,16 @@ export default function About() {
               </p>
             </div>
           </div>
-
-          <SliderAbout />
         </div>
       </div>
 
-      <div className="flex xl:flex-row-reverse justify-center items-center w-screen xl:max-w-screen-lg smxxl:flex-col">
-        <img src={AvatarCart} alt="" />
-        <div className="flex flex-col smxxl:w-1/2 xl:w-full justify-center items-center  p-12  rounded-lg">
+      <div className="flex justify-center items-center xl:gap-40 xl:flex-row-reverse flex-col mt-16 smxxl:max-w-screen-smxxxl max-w-screen-xl xl:mb-30 lg:flex-row-reverse lg:gap-40 md:flex-row-reverse md:gap-40">
+        <img
+          src={AboutPhone2}
+          alt=""
+          className="rounded-xl xl:w-1/2 smxxl:w-1/2"
+        />
+        <div className="flex smxxl:flex-col-reverse xl:flex-col smxxl:w-1/2 xl:w-full justify-center items-center p-12 rounded-lg">
           <Tooltip
             content="The Wilies Shoes for Every Style and Occasion!"
             className="bg-blue-900 px-5 text-white font-bold border-2 border-blue-900 rounded-lg drop-shadow-md smxxl:hidden sm:flex text-sm"
@@ -64,9 +67,21 @@ export default function About() {
         </div>
       </div>
 
-      <div className="flex xl:flex-row justify-center items-center xl:w-screen xl:max-w-screen-lg smxxl:flex-col-reverse smxxl:w-full mb-24">
-        <img src={Avatar} alt="" />
-        <TimeLine />
+      <div className="mt-20">
+        <SliderAbout />
+      </div>
+
+      <div className="flex xl:flex-row smxxxl:flex-col justify-center items-center xl:mb-40 xl:mt-16 lg:flex-row lg:mb-40 md:flex-row md:mb-40">
+        <div className="flex justify-center items-center smxxl:gap-20 xl:gap-40 xl:flex-row flex-col mt-16 smxxl:max-w-screen-smxxxl max-w-screen-xl xl:mb-30 lg:flex-row-reverse lg:gap-40 md:flex-row-reverse md:gap-40">
+          <img
+            src={AboutPhone3}
+            alt=""
+            className="rounded-xl xl:w-1/2 smxxl:w-1/2"
+          />
+        </div>
+        <div className="xl:w-1/2 lg:w-1/2 md:w-1/2 flex justify-center items-center">
+          <TimeLine />
+        </div>
       </div>
     </>
   );
