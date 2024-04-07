@@ -1,37 +1,101 @@
 import "../index.css";
 import ContactPhone from "../assets/contactPhone.png";
-import { Button, Link } from "@nextui-org/react";
 import Swal from "sweetalert2";
+import { Button, Link } from "@nextui-org/react";
 
 export default function Contact() {
   const SubmitOfContact = () => {
     Swal.fire({
       text: "Do you want to sent it?",
-      showDenyButton: false,
-      showCancelButton: true,
+      showCancelButton: false,
+      denyButtonText: "No",
+      showDenyButton: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      showCloseButton: false,
       confirmButtonText: "Yes",
-      confirmButtonColor: "#1e3a8a",
-      cancelButtonColor: "#d33",
-      denyButtonText: `No`,
+      buttonsStyling: false,
+      customClass: {
+        confirmButton:
+          "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+        denyButton:
+          "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+      },
     }).then((result) => {
-      if (result.isConfirmed) {
+      const message = document.getElementById("message");
+      const email = document.getElementById("email");
+      const emailValidator =
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (
+        !email.value.match(emailValidator) &&
+        message.value.trim() == 0 &&
+        !result.isDenied
+      ) {
+        Swal.fire({
+          title: "Email and Message",
+          text: "Sorry, Email and Messages Cannot Be Empty!",
+          icon: "error",
+          confirmButtonText: "Done",
+          buttonsStyling: false,
+          customClass: {
+            confirmButton:
+              "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+          },
+        });
+      } else if (result.isDenied) {
+        return;
+      } else if (!email.value.match(emailValidator) && message.value) {
+        Swal.fire({
+          title: "Email",
+          text: "Sorry, Email Must Have @ !",
+          icon: "error",
+          confirmButtonText: "Done",
+          buttonsStyling: false,
+          customClass: {
+            confirmButton:
+              "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+          },
+        });
+      } else if (
+        message.value == "" ||
+        message.value == null ||
+        message.value.trim() == 0
+      ) {
+        Swal.fire({
+          title: "Message",
+          text: "Sorry, Your Messages Cannot Be Empty!",
+          icon: "error",
+          confirmButtonText: "Done",
+          buttonsStyling: false,
+          customClass: {
+            confirmButton:
+              "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+          },
+        });
+      } else if (result.value) {
         setTimeout(function () {
           window.top.location = "/";
         }, 2000);
+        let timerInterval;
         Swal.fire({
-          title: "Thank You",
-          text: "Messages Has Been Sent!",
-          icon: "success",
-          confirmButtonColor: "#1e3a8a",
-          confirmButtonText: "Done",
-        });
-      } else if (result.isDenied) {
-        Swal.fire({
-          title: "Half Red Shoes",
-          text: "Cancelled!",
-          icon: "error",
-          confirmButtonColor: "#1e3a8a",
-          confirmButtonText: "Done",
+          title: "Thank You For Your Submit!",
+          html: "Your Messages Will Be Sent In <b></b> Milliseconds.",
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+              timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          },
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+          }
         });
       }
     });
@@ -46,7 +110,7 @@ export default function Contact() {
             Email
           </label>
           <input
-            id="text"
+            id="email"
             type="text"
             placeholder="Your Email"
             className="border-2 rounded-lg py-1 px-4 border-blue-900 placeholder:font-bold placeholder:text-sm font-bold text-sm bg-blue-900 text-white"
@@ -55,9 +119,9 @@ export default function Contact() {
             Message
           </label>
           <input
-            id="text"
+            id="message"
             type="text"
-            placeholder="Your Message"
+            placeholder="Your Messages"
             className="border-2 rounded-lg py-1 px-4 border-blue-900 placeholder:font-bold placeholder:text-sm font-bold text-sm bg-blue-900 text-white"
           />
           <label htmlFor="text" className="font-bold">
@@ -71,12 +135,13 @@ export default function Contact() {
           />
         </div>
 
-        <div className="p-3">
+        <div className="p-3 flex justify-center items-center">
           <Button
-            as={Link}
-            className="bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex"
             onClick={SubmitOfContact}
-            variant="flat"
+            as={Link}
+            className="bg-blue-900 px-5 text-white font-bold hover:bg-white
+            hover:text-blue-900 border-2 border-blue-900 rounded-lg
+            hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer"
           >
             Submit
           </Button>
