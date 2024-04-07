@@ -40,12 +40,29 @@ const BlueShoes = () => {
       setTimeout(function () {
         window.top.location = "/contact";
       }, 2000);
+      let timerInterval;
+
       Swal.fire({
         title: "Blue Shoes",
         text: "Sent Successfully!",
         icon: "success",
-        confirmButtonColor: "#1e3a8a",
-        confirmButtonText: "Done",
+        html: "Your order will be sent in <b></b> milliseconds.",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
       });
     } else if (result.isDenied) {
       Swal.fire({
