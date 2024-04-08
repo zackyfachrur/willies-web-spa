@@ -3860,6 +3860,11 @@ body {
     gap: 5rem;
   }
 
+  .smxxl\:px-2{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   .smxxl\:px-3{
     padding-left: 0.75rem;
     padding-right: 0.75rem;
