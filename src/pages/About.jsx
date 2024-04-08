@@ -5,7 +5,14 @@ import AboutPhone3 from "../assets/aboutPhone3.png";
 import SliderAbout from "../components/SliderOfAbout";
 import { Tooltip, Button, Link } from "@nextui-org/react";
 import TimeLine from "../components/Timeline";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 export default function About() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
       <div className="m-auto mt-24 xl:mt-28 w-full flex justify-center items-center flex-col max-w-screen-xl">
@@ -15,6 +22,8 @@ export default function About() {
               src={AboutPhone}
               alt="Phone IMG"
               className="rounded-xl xl:w-1/2 smxxl:w-1/2"
+              data-aos="fade-in"
+              data-aos-duration="800"
             />
             <div className="flex flex-col smxxl:w-1/2 xl:w-full justify-center items-center p-12  rounded-lg">
               <Tooltip
@@ -25,12 +34,18 @@ export default function About() {
                 <Button
                   as={Link}
                   className="md:text-base font-bold md:px-5 text-white bg-blue-900 sm:w-96 smxl:w-96 smxxl:w-80 smxxl:text-sm md:w-96 sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase cursor-default"
+                  data-aos="fade-in"
+                  data-aos-duration="500"
                   variant="flat"
                 >
                   Want to step up your fashion game?
                 </Button>
               </Tooltip>
-              <p className="w-80 p-3 font-bold">
+              <p
+                className="w-80 p-3 font-bold"
+                data-aos="fade-in"
+                data-aos-duration="800"
+              >
                 With trendy designs and undeniable quality, we present a
                 collection of shoes that will make your stride more confident
                 and comfortable.
@@ -45,6 +60,8 @@ export default function About() {
           src={AboutPhone2}
           alt=""
           className="rounded-xl xl:w-1/2 smxxl:w-1/2"
+          data-aos="fade-in"
+          data-aos-duration="800"
         />
         <div className="flex smxxl:flex-col-reverse xl:flex-col smxxl:w-1/2 xl:w-full justify-center items-center p-12 rounded-lg">
           <Tooltip
@@ -54,12 +71,18 @@ export default function About() {
             <Button
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900 sm:w-96 smxl:w-96 smxxl:w-80 smxxl:text-sm md:w-96 sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase cursor-default"
+              data-aos="fade-in"
+              data-aos-duration="800"
               variant="flat"
             >
               Find Your Perfect Fit
             </Button>
           </Tooltip>
-          <p className="w-80 p-3 font-bold">
+          <p
+            className="w-80 p-3 font-bold"
+            data-aos="fade-in"
+            data-aos-duration="800"
+          >
             Whatever your style, The Wilies Shoes has the perfect fit for you.
             From casual to formal, we have a variety of models to suit your
             needs for every occasion.
@@ -67,7 +90,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="mt-20">
+      <div className="mt-20" data-aos="fade-in" data-aos-duration="800">
         <SliderAbout />
       </div>
 
@@ -77,6 +100,8 @@ export default function About() {
             src={AboutPhone3}
             alt=""
             className="rounded-xl xl:w-1/2 smxxl:w-1/2"
+            data-aos="fade-in"
+            data-aos-duration="800"
           />
         </div>
         <div className="xl:w-1/2 lg:w-1/2 md:w-1/2 flex justify-center items-center">
