@@ -7,18 +7,17 @@ export default function Contact() {
   const SubmitOfContact = () => {
     Swal.fire({
       text: "Do you want to sent it?",
-      showCancelButton: false,
-      denyButtonText: "No",
-      showDenyButton: true,
+      showCancelButton: true,
+      cancelButtonText: "No",
+      showDenyButton: false,
       allowOutsideClick: false,
       allowEscapeKey: false,
-      showCloseButton: false,
       confirmButtonText: "Yes",
       buttonsStyling: false,
       customClass: {
         confirmButton:
           "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
-        denyButton:
+        cancelButton:
           "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
       },
     }).then((result) => {
@@ -29,7 +28,7 @@ export default function Contact() {
       if (
         !email.value.match(emailValidator) &&
         message.value.trim() == 0 &&
-        !result.isDenied
+        !result.isDismissed
       ) {
         Swal.fire({
           title: "Email and Message",
@@ -42,7 +41,7 @@ export default function Contact() {
               "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
           },
         });
-      } else if (result.isDenied) {
+      } else if (result.isDismissed) {
         return;
       } else if (!email.value.match(emailValidator) && message.value) {
         Swal.fire({

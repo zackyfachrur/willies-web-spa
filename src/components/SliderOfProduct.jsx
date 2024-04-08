@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import { Button, Link } from "@nextui-org/react";
 import ShoesGreen from "../assets/shoes-3.jpeg";
 import ShoesYellow from "../assets/shoes-4.jpeg";
-import ShoesBlue from "../assets/shoes-5.jpg";
+import ShoesWhite from "../assets/white-runner.jpg";
+import ShoesSpecial from "../assets/special-runner.jpg";
 import Swal from "sweetalert2";
 
 const CustomArrow = (props) => {
@@ -25,7 +26,7 @@ const CustomArrow = (props) => {
   );
 };
 
-const BlueShoes = () => {
+const WhiteShoes = () => {
   Swal.fire({
     title: "$24",
     text: "Do you want to buy it?",
@@ -34,44 +35,199 @@ const BlueShoes = () => {
     confirmButtonText: "Yes",
     confirmButtonColor: "#1e3a8a",
     cancelButtonColor: "#d33",
-    denyButtonText: `No`,
+    cancelButtonText: `No`,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    buttonsStyling: false,
+    customClass: {
+      confirmButton:
+        "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+      cancelButton:
+        "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+    },
   }).then((result) => {
     if (result.isConfirmed) {
-      setTimeout(function () {
-        window.top.location = "/contact";
-      }, 2000);
-      let timerInterval;
-
       Swal.fire({
-        title: "Blue Shoes",
-        text: "Sent Successfully!",
-        icon: "success",
-        html: "Your order will be sent in <b></b> milliseconds.",
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: () => {
-          Swal.showLoading();
-          const timer = Swal.getPopup().querySelector("b");
-          timerInterval = setInterval(() => {
-            timer.textContent = `${Swal.getTimerLeft()}`;
-          }, 100);
+        title: "Information",
+        icon: "info",
+        text: "Do you want to messages us?",
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        confirmButtonColor: "#1e3a8a",
+        cancelButtonColor: "#d33",
+        cancelButtonText: `No`,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        buttonsStyling: false,
+        customClass: {
+          confirmButton:
+            "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+          cancelButton:
+            "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
         },
-        willClose: () => {
-          clearInterval(timerInterval);
-        },
-      }).then((result) => {
-        if (result.dismiss === Swal.DismissReason.timer) {
-          console.log("I was closed by the timer");
+      }).then((submit) => {
+        if (submit.isConfirmed) {
+          setTimeout(function () {
+            window.top.location = "/contact";
+          }, 2000);
+          let timerContact;
+          Swal.fire({
+            title: "White Red Dot",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerContact = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerContact);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        } else if (submit.isDismissed) {
+          setTimeout(function () {
+            window.top.location = "/";
+          }, 2000);
+          let timerSubmit;
+          Swal.fire({
+            title: "White Red Dot",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerSubmit = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerSubmit);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
         }
       });
-    } else if (result.isDenied) {
+    } else if (result.isDismissed) {
+      return;
+    }
+  });
+};
+
+const SpecialShoes = () => {
+  Swal.fire({
+    title: "$78",
+    text: "Do you want to buy it?",
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Yes",
+    confirmButtonColor: "#1e3a8a",
+    cancelButtonColor: "#d33",
+    cancelButtonText: `No`,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    buttonsStyling: false,
+    customClass: {
+      confirmButton:
+        "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+      cancelButton:
+        "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
       Swal.fire({
-        title: "Blue Shoes",
-        text: "Cancelled!",
-        icon: "error",
+        title: "Information",
+        icon: "info",
+        text: "Do you want to messages us?",
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: "Yes",
         confirmButtonColor: "#1e3a8a",
-        confirmButtonText: "Done",
+        cancelButtonColor: "#d33",
+        cancelButtonText: `No`,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        buttonsStyling: false,
+        customClass: {
+          confirmButton:
+            "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+          cancelButton:
+            "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+        },
+      }).then((submit) => {
+        if (submit.isConfirmed) {
+          setTimeout(function () {
+            window.top.location = "/contact";
+          }, 2000);
+          let timerContact;
+          Swal.fire({
+            title: "Wilies Sea Edition",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerContact = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerContact);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        } else if (submit.isDismissed) {
+          setTimeout(function () {
+            window.top.location = "/";
+          }, 2000);
+          let timerSubmit;
+          Swal.fire({
+            title: "Wilies Sea Edition",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerSubmit = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerSubmit);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        }
       });
+    } else if (result.isDismissed) {
+      return;
     }
   });
 };
@@ -85,27 +241,96 @@ const GreenShoes = () => {
     confirmButtonText: "Yes",
     confirmButtonColor: "#1e3a8a",
     cancelButtonColor: "#d33",
-    denyButtonText: `No`,
+    cancelButtonText: `No`,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    buttonsStyling: false,
+    customClass: {
+      confirmButton:
+        "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+      cancelButton:
+        "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+    },
   }).then((result) => {
     if (result.isConfirmed) {
-      setTimeout(function () {
-        window.top.location = "/contact";
-      }, 2000);
       Swal.fire({
-        title: "Green Shoes",
-        text: "Sent Successfully!",
-        icon: "success",
+        title: "Information",
+        icon: "info",
+        text: "Do you want to messages us?",
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: "Yes",
         confirmButtonColor: "#1e3a8a",
-        confirmButtonText: "Done",
+        cancelButtonColor: "#d33",
+        cancelButtonText: `No`,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        buttonsStyling: false,
+        customClass: {
+          confirmButton:
+            "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+          cancelButton:
+            "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+        },
+      }).then((submit) => {
+        if (submit.isConfirmed) {
+          setTimeout(function () {
+            window.top.location = "/contact";
+          }, 2000);
+          let timerContact;
+          Swal.fire({
+            title: "Wilies Mix Green",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerContact = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerContact);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        } else if (submit.isDismissed) {
+          setTimeout(function () {
+            window.top.location = "/";
+          }, 2000);
+          let timerSubmit;
+          Swal.fire({
+            title: "Wilies Mix Green",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerSubmit = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerSubmit);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        }
       });
-    } else if (result.isDenied) {
-      Swal.fire({
-        title: "Green Shoes",
-        text: "Cancelled!",
-        icon: "error",
-        confirmButtonColor: "#1e3a8a",
-        confirmButtonText: "Done",
-      });
+    } else if (result.isDismissed) {
+      return;
     }
   });
 };
@@ -119,27 +344,96 @@ const YellowShoes = () => {
     confirmButtonText: "Yes",
     confirmButtonColor: "#1e3a8a",
     cancelButtonColor: "#d33",
-    denyButtonText: `No`,
+    cancelButtonText: `No`,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    buttonsStyling: false,
+    customClass: {
+      confirmButton:
+        "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+      cancelButton:
+        "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+    },
   }).then((result) => {
     if (result.isConfirmed) {
-      setTimeout(function () {
-        window.top.location = "/contact";
-      }, 2000);
       Swal.fire({
-        title: "Yellow Shoes",
-        text: "Sent Successfully!",
-        icon: "success",
+        title: "Information",
+        icon: "info",
+        text: "Do you want to messages us?",
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: "Yes",
         confirmButtonColor: "#1e3a8a",
-        confirmButtonText: "Done",
+        cancelButtonColor: "#d33",
+        cancelButtonText: `No`,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        buttonsStyling: false,
+        customClass: {
+          confirmButton:
+            "bg-blue-900 px-5 text-white font-bold hover:bg-white hover:text-blue-900 border-2 border-blue-900 rounded-lg hover:border-blue-900 hover:drop-shadow-md flex cursor-pointer mr-3",
+          cancelButton:
+            "bg-red-700 px-5 text-white font-bold hover:bg-white hover:text-red-700 border-2 border-red-700 rounded-lg hover:border-red-700 hover:drop-shadow-md flex cursor-pointer",
+        },
+      }).then((submit) => {
+        if (submit.isConfirmed) {
+          setTimeout(function () {
+            window.top.location = "/contact";
+          }, 2000);
+          let timerContact;
+          Swal.fire({
+            title: "Wilies Half Yellow",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerContact = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerContact);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        } else if (submit.isDismissed) {
+          setTimeout(function () {
+            window.top.location = "/";
+          }, 2000);
+          let timerSubmit;
+          Swal.fire({
+            title: "Wilies Half Yellow",
+            text: "Sent Successfully!",
+            icon: "success",
+            html: "Your order will be sent in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerSubmit = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerSubmit);
+            },
+          }).then((submit) => {
+            if (submit.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        }
       });
-    } else if (result.isDenied) {
-      Swal.fire({
-        title: "Yellow Shoes",
-        text: "Cancelled!",
-        icon: "error",
-        confirmButtonColor: "#1e3a8a",
-        confirmButtonText: "Done",
-      });
+    } else if (result.isDismissed) {
+      return;
     }
   });
 };
@@ -191,22 +485,22 @@ export default function SliderOfProduct() {
     <div className="lg:w-screen max-w-screen-smxxxl smxl:max-w-screen-smxxl sm:max-w-screen-smx md:max-w-screen-sm lg:max-w-screen-md lgx:max-w-screen-lg xl:w-full xl:max-w-screen-lg pb-20 gap-20 just">
       <div className="flex justify-center items-center mb-10">
         <h2 className="flex justify-center items-center md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase w-56">
-          Climbing Shoes
+          Runner Shoes
         </h2>
       </div>
       <Slider {...settings}>
         <div className="flex items-center justify-center p-5">
           <h2 className="flex justify-center items-center font-bold">$24</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Blue Shoes
+            White Red Dot
           </h2>
-          <img src={ShoesBlue} alt="" className="w-full" />
+          <img src={ShoesWhite} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center">
             <Button
               as={Link}
               className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
-              onClick={BlueShoes}
+              onClick={WhiteShoes}
             >
               Buy
             </Button>
@@ -215,7 +509,7 @@ export default function SliderOfProduct() {
         <div className="flex items-center justify-center p-5 h-32 w-32">
           <h2 className="flex justify-center items-center font-bold">$35</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Green Shoes
+            Wilies Mix Green
           </h2>
           <img src={ShoesYellow} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center item">
@@ -230,9 +524,26 @@ export default function SliderOfProduct() {
           </div>
         </div>
         <div className="flex items-center justify-center p-5">
+          <h2 className="flex justify-center items-center font-bold">$78</h2>
+          <h2 className="flex justify-center items-center font-bold">
+            Wilies Sea Edition
+          </h2>
+          <img src={ShoesSpecial} alt="" className="w-full" />
+          <div className="flex flex-col gap-2 w-full justify-center">
+            <Button
+              as={Link}
+              className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
+              variant="flat"
+              onClick={SpecialShoes}
+            >
+              Buy
+            </Button>
+          </div>
+        </div>
+        <div className="flex items-center justify-center p-5">
           <h2 className="flex justify-center items-center font-bold">$54</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Yellow Shoes
+            Wilies Half Yellow
           </h2>
           <img src={ShoesGreen} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center item">
