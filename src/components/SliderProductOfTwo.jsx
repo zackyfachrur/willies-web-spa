@@ -6,6 +6,9 @@ import ShoesT2 from "../assets/shoesT-2.png";
 import ShoesT3 from "../assets/shoesT-3.png";
 import ShoesT4 from "../assets/shoesT-4.jpg";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const CustomArrow = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -27,6 +30,9 @@ const CustomArrow = (props) => {
 };
 
 export default function SliderProductOfTwo() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const settings = {
     className: "center",
     centerMode: true,
@@ -119,7 +125,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies Full White",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -146,7 +152,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies Full White",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -222,7 +228,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies High",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -249,7 +255,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies High",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -325,7 +331,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies Red Line",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -352,7 +358,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies Red Line",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -428,7 +434,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies Classic",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -455,7 +461,7 @@ export default function SliderProductOfTwo() {
               title: "Wilies Classic",
               text: "Sent Successfully!",
               icon: "success",
-              html: "Your order will be sent in <b></b> milliseconds.",
+              html: "Your order will be sent in <b></b>",
               timer: 2000,
               timerProgressBar: true,
               didOpen: () => {
@@ -482,7 +488,11 @@ export default function SliderProductOfTwo() {
   };
 
   return (
-    <div className="lg:w-screen max-w-screen-smxxxl smxl:max-w-screen-smxxl sm:max-w-screen-smx md:max-w-screen-sm lg:max-w-screen-md lgx:max-w-screen-lg xl:w-full xl:max-w-screen-lg pb-20 gap-20 just">
+    <div
+      className="lg:w-screen max-w-screen-smxxxl smxl:max-w-screen-smxxl sm:max-w-screen-smx md:max-w-screen-sm lg:max-w-screen-md lgx:max-w-screen-lg xl:w-full xl:max-w-screen-lg pb-20 gap-20 just"
+      data-aos="fade-in"
+      data-aos-duration="800"
+    >
       <div className="flex justify-center items-center mb-10">
         <h2 className="flex justify-center items-center md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase w-56">
           Wilies Casual
@@ -498,7 +508,7 @@ export default function SliderProductOfTwo() {
           <div className="flex flex-col gap-2 w-full justify-center">
             <Button
               as={Link}
-              className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
+              className="md:text-base font-bold md:px-5 text-white bg-blue-900 hover:bg-white hover:border-blue-900 hover:text-blue-900 border-2 smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
               onClick={WhiteShoes}
             >
@@ -515,7 +525,7 @@ export default function SliderProductOfTwo() {
           <div className="flex flex-col gap-2 w-full justify-center item">
             <Button
               as={Link}
-              className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-2 smxxl:py-1 text-center uppercase"
+              className="md:text-base font-bold md:px-5 text-white bg-blue-900 hover:bg-white hover:border-blue-900 hover:text-blue-900 border-2 smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
               onClick={BrownShoes}
             >
@@ -532,7 +542,7 @@ export default function SliderProductOfTwo() {
           <div className="flex flex-col gap-2 w-full justify-center item">
             <Button
               as={Link}
-              className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
+              className="md:text-base font-bold md:px-5 text-white bg-blue-900 hover:bg-white hover:border-blue-900 hover:text-blue-900 border-2 smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
               onClick={HalfRedShoes}
             >
@@ -549,7 +559,7 @@ export default function SliderProductOfTwo() {
           <div className="flex flex-col gap-2 w-full justify-center item">
             <Button
               as={Link}
-              className="md:text-base font-bold md:px-5 text-white bg-blue-900  smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
+              className="md:text-base font-bold md:px-5 text-white bg-blue-900 hover:bg-white hover:border-blue-900 hover:text-blue-900 border-2 smxxl:text-sm sm:text-sm rounded-lg smxxl:px-3 smxxl:py-1 text-center uppercase"
               variant="flat"
               onClick={ClassicShoes}
             >

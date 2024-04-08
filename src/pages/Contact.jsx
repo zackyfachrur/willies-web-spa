@@ -2,8 +2,14 @@ import "../index.css";
 import ContactPhone from "../assets/contactPhone.png";
 import Swal from "sweetalert2";
 import { Button, Link } from "@nextui-org/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function Contact() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const SubmitOfContact = () => {
     Swal.fire({
       text: "Do you want to sent it?",
@@ -32,7 +38,7 @@ export default function Contact() {
       ) {
         Swal.fire({
           title: "Email and Message",
-          text: "Sorry, Email and Messages Cannot Be Empty!",
+          text: "is Empty :(",
           icon: "error",
           confirmButtonText: "Done",
           buttonsStyling: false,
@@ -46,7 +52,7 @@ export default function Contact() {
       } else if (!email.value.match(emailValidator) && message.value) {
         Swal.fire({
           title: "Email",
-          text: "Sorry, Email Must Have @ !",
+          text: "Email Must Have @ :(",
           icon: "error",
           confirmButtonText: "Done",
           buttonsStyling: false,
@@ -62,7 +68,7 @@ export default function Contact() {
       ) {
         Swal.fire({
           title: "Message",
-          text: "Sorry, Your Messages Cannot Be Empty!",
+          text: "is Empty :(",
           icon: "error",
           confirmButtonText: "Done",
           buttonsStyling: false,
@@ -78,7 +84,7 @@ export default function Contact() {
         let timerInterval;
         Swal.fire({
           title: "Thank You For Your Submit!",
-          html: "Your Messages Will Be Sent In <b></b> Milliseconds.",
+          html: "Messages Will Be Sent In <b></b>",
           timer: 2000,
           timerProgressBar: true,
           didOpen: () => {
@@ -101,7 +107,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex justify-center items-center xl:flex-row mt-32 mb-60 smxxxl:flex-col xl:gap-40">
+    <div
+      className="flex justify-center items-center xl:flex-row mt-32 mb-60 smxxxl:flex-col xl:gap-40"
+      data-aos="fade-in"
+      data-aos-duration="800"
+    >
       <img src={ContactPhone} alt="" className="xl:w-1/4 smxxl:w-1/2" />
       <div className="flex flex-col ">
         <div className="flex flex-col justify-center items-start gap-2">
