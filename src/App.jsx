@@ -2,11 +2,11 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react"
 import { MutatingDots } from "react-loader-spinner";
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Homes from "./pages/Homes";
-import About from "./pages/About"
-import Product from "./pages/Product"
+import About from "./pages/About";
+import Product from "./pages/Product";
 import Contact from "./pages/Contact";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, document.onload);
   }, []);
 
   if (isLoading) {
@@ -51,7 +51,9 @@ function App() {
         <Route path="/product" element={<Product />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </BrowserRouter>
   );
 }
