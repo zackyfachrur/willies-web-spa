@@ -83,7 +83,7 @@ export default function Contact() {
         }, 2000);
         let timerInterval;
         Swal.fire({
-          title: "Thank You For Your Submit!",
+          title: "Thank You!",
           html: "Messages Will Be Sent In <b></b>",
           timer: 2000,
           timerProgressBar: true,
