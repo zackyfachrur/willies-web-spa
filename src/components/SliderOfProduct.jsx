@@ -9,6 +9,12 @@ import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import {
+  WiliesRedDot,
+  WiliesMixGreen,
+  WiliesSeaEdition,
+  WiliesHalfYellow,
+} from "./ShoesController";
 
 const CustomArrow = (props) => {
   useEffect(() => {
@@ -500,9 +506,11 @@ export default function SliderOfProduct() {
       </div>
       <Slider {...settings}>
         <div className="flex items-center justify-center p-5">
-          <h2 className="flex justify-center items-center font-bold">$24</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies Red Dot
+            {WiliesRedDot.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesRedDot.name}
           </h2>
           <img src={ShoesWhite} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center">
@@ -517,9 +525,11 @@ export default function SliderOfProduct() {
           </div>
         </div>
         <div className="flex items-center justify-center p-5 h-32 w-32">
-          <h2 className="flex justify-center items-center font-bold">$35</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies Mix Green
+            {WiliesMixGreen.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesMixGreen.name}
           </h2>
           <img src={ShoesYellow} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center item">
@@ -534,9 +544,11 @@ export default function SliderOfProduct() {
           </div>
         </div>
         <div className="flex items-center justify-center p-5">
-          <h2 className="flex justify-center items-center font-bold">$78</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies Sea Edition
+            {WiliesSeaEdition.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesSeaEdition.name}
           </h2>
           <img src={ShoesSpecial} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center">
@@ -551,9 +563,11 @@ export default function SliderOfProduct() {
           </div>
         </div>
         <div className="flex items-center justify-center p-5">
-          <h2 className="flex justify-center items-center font-bold">$54</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies Half Yellow
+            {WiliesHalfYellow.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesHalfYellow.name}
           </h2>
           <img src={ShoesGreen} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center item">
