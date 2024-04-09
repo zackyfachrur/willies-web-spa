@@ -9,6 +9,12 @@ import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import {
+  WiliesClassic,
+  WiliesFullWhite,
+  WiliesHigh,
+  WiliesRedLine,
+} from "./ShoesController";
 
 const CustomArrow = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -500,9 +506,11 @@ export default function SliderProductOfTwo() {
       </div>
       <Slider {...settings}>
         <div className="flex items-center justify-center p-5">
-          <h2 className="flex justify-center items-center font-bold">$65</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies Full White
+            {WiliesFullWhite.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesFullWhite.name}
           </h2>
           <img src={ShoesT1} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center">
@@ -517,9 +525,11 @@ export default function SliderProductOfTwo() {
           </div>
         </div>
         <div className="flex items-center justify-center p-5 h-32 w-32">
-          <h2 className="flex justify-center items-center font-bold">$78</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies High
+            {WiliesHigh.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesHigh.name}
           </h2>
           <img src={ShoesT2} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center item">
@@ -534,9 +544,11 @@ export default function SliderProductOfTwo() {
           </div>
         </div>
         <div className="flex items-center justify-center p-5">
-          <h2 className="flex justify-center items-center font-bold">$58</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies Red Line
+            {WiliesRedLine.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesRedLine.name}
           </h2>
           <img src={ShoesT3} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center item">
@@ -551,9 +563,11 @@ export default function SliderProductOfTwo() {
           </div>
         </div>
         <div className="flex items-center justify-center p-5">
-          <h2 className="flex justify-center items-center font-bold">$52</h2>
           <h2 className="flex justify-center items-center font-bold">
-            Wilies Classic
+            {WiliesClassic.price}
+          </h2>
+          <h2 className="flex justify-center items-center font-bold">
+            {WiliesClassic.name}
           </h2>
           <img src={ShoesT4} alt="" className="w-full" />
           <div className="flex flex-col gap-2 w-full justify-center item">

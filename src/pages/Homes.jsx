@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import "../index.css";
-import NewShoes from "../assets/shoesT-2.png";
+import HomePhone from "../assets/homePhone.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
       <div className="flex flex-row">
         <img
-          src={NewShoes}
+          src={HomePhone}
           alt="Shoes Intro"
           className="w-full smxxl:w-80"
           data-aos="fade-in"
