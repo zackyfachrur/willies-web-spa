@@ -1,6 +1,6 @@
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { MutatingDots } from "react-loader-spinner";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -51,9 +51,7 @@ function App() {
         <Route path="/product" element={<Product />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </BrowserRouter>
   );
 }

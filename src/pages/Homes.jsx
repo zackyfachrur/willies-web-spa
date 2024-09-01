@@ -10,17 +10,17 @@ export default function Home() {
     AOS.init();
   }, []);
   return (
-    <div className="flex md:gap-36 justify-center items-center xl:flex-row md:flex-col smxxl:flex-col font-sand h-screen smxxl:h-screen xl:mt-0 md:mt-32">
+    <div className="flex items-center justify-center h-screen md:gap-36 xl:flex-row md:flex-col smxxl:flex-col font-sand smxxl:h-screen xl:mt-0 md:mt-32">
       <div className="flex flex-col items-center justify-center p-5">
         <h1
-          className="md:text-2xl font-bold md:px-5 text-white bg-blue-900 sm:w-72 smxl:w-72 smxxl:w-72 md:w-96 sm:text-sm rounded-lg smxxl:px-3 text-center"
+          className="font-bold text-center text-white bg-blue-900 rounded-lg md:text-2xl md:px-5 sm:w-72 smxl:w-72 smxxl:w-72 md:w-96 sm:text-sm smxxl:px-3"
           data-aos="fade-in"
           data-aos-duration="800"
         >
           Welcome to Wilies Shoes
         </h1>
         <p
-          className="md:w-96 smxl:w-80 smxxl:w-80 md:text-base font-bold smxxl:text-sm text-center"
+          className="font-bold text-center md:w-96 smxl:w-80 smxxl:w-80 md:text-base smxxl:text-sm"
           data-aos="fade-in"
         >
           This website is purely fictional, so please forgive any offensive or

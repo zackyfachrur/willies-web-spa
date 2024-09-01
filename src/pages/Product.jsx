@@ -1,5 +1,5 @@
 import "../index.css";
-import SliderProduct from "../components/SliderOfProduct"
+import SliderProduct from "../components/SliderOfProduct";
 import SliderProductOfTwo from "../components/SliderProductOfTwo";
 import SliderAbout from "../components/SliderOfAbout";
 export default function Product() {
