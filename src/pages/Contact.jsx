@@ -108,11 +108,11 @@ export default function Contact() {
 
   return (
     <div
-      className="flex justify-center items-center xl:flex-row mt-32 mb-60 smxxxl:flex-col xl:gap-40"
+      className="flex justify-center items-center xl:flex-row h-screen smxxxl:flex-col xl:gap-40"
       data-aos="fade-in"
       data-aos-duration="800"
     >
-      <img src={ContactPhone} alt="" className="xl:w-1/4 smxxl:w-1/2" />
+      <img src={ContactPhone} alt="" className="xl:w-1/2 smxxl:w-1/2" />
       <div className="flex flex-col ">
         <div className="flex flex-col justify-center items-start gap-2">
           <label htmlFor="text" className="font-bold">
